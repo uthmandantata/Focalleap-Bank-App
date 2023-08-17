@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      var balance = 0;
+      let balance = 0;
       const pinNumber = prompt(`Enter your PIN:`);
       if (pinNumber === "1234") {
         const options = prompt(`Pleas select one of the following:
@@ -26,11 +26,11 @@
         if (options === "1") {
           alert(`Balance = ${balance}`);
         } else if (options === "2") {
-          var amount = parseFloat(prompt("Enter amount to be deposited:"));
+          let amount = parseFloat(prompt("Enter amount to be deposited:"));
           balance = balance + amount;
           alert(`Balance ${balance}`);
         } else if (options === "3") {
-          var amount = parseFloat(prompt("Enter amount to be deposited:"));
+          let amount = parseFloat(prompt("Enter amount to be deposited:"));
           if (amount > balance) {
             alert("You do not have enough balance");
           } else {
