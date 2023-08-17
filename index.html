@@ -9,41 +9,53 @@
   <script>
     var balance = 0;
     while (true) {
-      const options = prompt(`Welcome to Focalleap Bank App!!
-    Pleas select one of the following:
-    1. Check Balance
-    2. Deposit
-    3. Remove
-    4. Exit to quit`);
+      const pin_number = prompt(`Welcome to Focalleap Bank App!!
+      Pleas input your PIN
+      *input exit to leave`);
 
-      if (options !== "1" && options !== "2" && options !== "3" && options !== "4") {
-        alert(`Invalid prompt!
-        Pleas select one of the following:
-        1. Check Balance
-        2. Deposit
-        3. Remove
-        4. Exit to quit`);
-        continue;
-      }
+      if (pin_number === "1234") {
+        while (true) {
+          const options = prompt(`Pleas select one of the following:
+          1. Check Balance
+          2. Deposit
+          3. Remove
+          4. Exit to quit`);
 
-      if (options === "1") {
-        alert(`Balance = ${balance}`);
-        continue;
-      } else if (options === "2") {
-        var amount = parseFloat(prompt("Enter amount to be deposited:"));
-        balance = balance + amount;
-        continue;
-      } else if (options === "3") {
-        var amount = parseFloat(prompt("Enter amount to be deposited:"));
-        if (amount > balance) {
-          alert("You do not have enough balance");
-          continue;
-        } else {
-          balance = balance - amount;
+          if (options !== "1" && options !== "2" && options !== "3" && options !== "4") {
+            alert(`Invalid prompt!
+              Pleas select one of the following:
+              1. Check Balance
+              2. Deposit
+              3. Remove
+              4. Exit to quit`);
+            continue;
+          }
+
+          if (options === "1") {
+            alert(`Balance = ${balance}`);
+            continue;
+          } else if (options === "2") {
+            var amount = parseFloat(prompt("Enter amount to be deposited:"));
+            balance = balance + amount;
+            continue;
+          } else if (options === "3") {
+            var amount = parseFloat(prompt("Enter amount to be deposited:"));
+            if (amount > balance) {
+              alert("You do not have enough balance");
+              continue;
+            } else {
+              balance = balance - amount;
+            }
+          } else if (options === "4") {
+            alert("Thank you for using Focalleap Bank App!!");
+            break;
+          }
         }
-      } else if (options === "4") {
-        alert("Thank you for using Focalleap Bank App!!");
+      } else if (pin_number === "exit") {
         break;
+      } else {
+        alert("Wrong PIN");
+        continue;
       }
     }
   </script>
